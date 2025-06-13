@@ -1,15 +1,17 @@
+
 // src/components/custom/AIMessageGenerator.tsx
 "use client";
 
+import type { RefObject } from 'react';
 import { useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { generateBirthdayMessage, GenerateBirthdayMessageInput } from '@/ai/flows/generate-birthday-message';
+import { generateBirthdayMessage, type GenerateBirthdayMessageInput } from '@/ai/flows/generate-birthday-message';
 import { Loader2, Wand2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -21,9 +23,10 @@ type FormValues = z.infer<typeof formSchema>;
 
 interface AIMessageGeneratorProps {
   onMessageGenerated: (message: string) => void;
+  onGenerationCompleteScrollToRef?: RefObject<HTMLDivElement>;
 }
 
-const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenerated }) => {
+const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenerated, onGenerationCompleteScrollToRef }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
@@ -45,6 +48,9 @@ const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenera
         description: "Your personalized birthday message is ready.",
       });
       // form.reset(); // Optionally reset form
+      if (onGenerationCompleteScrollToRef?.current) {
+        onGenerationCompleteScrollToRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     } catch (error) {
       console.error("Error generating message:", error);
       let errorMessage = "Failed to generate birthday message. Please try again.";

@@ -1,7 +1,8 @@
+
 // src/app/page.tsx
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import PageHeader from '@/components/custom/PageHeader';
 import CountdownTimer from '@/components/custom/CountdownTimer';
 import AIMessageGenerator from '@/components/custom/AIMessageGenerator';
@@ -17,6 +18,7 @@ export default function BirthdayBlastPage() {
   );
   const alphaPhotoUrl = "https://code-alpha-image-gallary.vercel.app/alpha.jpeg";
   const targetDate = "2025-06-15T00:00:00"; // Alpha's Birthday
+  const cardRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="flex flex-col items-center min-h-screen p-4 md:p-8 selection:bg-accent selection:text-accent-foreground">
@@ -33,9 +35,12 @@ export default function BirthdayBlastPage() {
         <section aria-labelledby="card-creation-heading" className="space-y-8 md:space-y-0 md:grid md:grid-cols-12 md:gap-8 items-start">
            <h2 id="card-creation-heading" className="sr-only">Create and View Birthday Card</h2>
           <div className="md:col-span-5 lg:col-span-4">
-            <AIMessageGenerator onMessageGenerated={setGeneratedMessage} />
+            <AIMessageGenerator 
+              onMessageGenerated={setGeneratedMessage} 
+              onGenerationCompleteScrollToRef={cardRef}
+            />
           </div>
-          <div className="md:col-span-7 lg:col-span-8 mt-8 md:mt-0">
+          <div className="md:col-span-7 lg:col-span-8 mt-8 md:mt-0" ref={cardRef}>
             <VirtualBirthdayCard 
               message={generatedMessage} 
               photoUrl={alphaPhotoUrl} 
