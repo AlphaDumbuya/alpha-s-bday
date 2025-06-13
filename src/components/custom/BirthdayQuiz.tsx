@@ -20,48 +20,64 @@ interface QuizQuestion {
 const quizQuestionsData: QuizQuestion[] = [
   {
     id: 1,
-    questionText: "What's Alpha's absolute FAVORITE food (that they'd eat for breakfast, lunch, and dinner)?",
+    questionText: "Alpha’s love life can best be described as:",
     options: [
-      { text: "A giant bowl of... spaghetti code", isCorrect: false },
-      { text: "Anything, as long as it's delivered so they don't stop coding", isCorrect: true },
-      { text: "A perfectly optimized algorithm salad", isCorrect: false },
-      { text: "Pizza, with extra pineapple (the ultimate test of friendship!)", isCorrect: false },
+      { text: "A romantic movie", isCorrect: false },
+      { text: "A mystery novel", isCorrect: false },
+      { text: "A Wi-Fi signal—sometimes strong, sometimes gone!", isCorrect: true },
     ],
-    jokeExplanation: "Because focus is everything! (And maybe a little bit of laziness for cooking)."
+    jokeExplanation: "Because love, like Wi-Fi, can be beautifully unpredictable!"
   },
   {
     id: 2,
-    questionText: "If Alpha had a dollar for every time they said \"Just one more line of code...\", they would:",
+    questionText: "Alpha’s religious habit includes:",
     options: [
-      { text: "Own a small country by now", isCorrect: true },
-      { text: "Still be broke, because they'd spend it all on new keyboards", isCorrect: false },
-      { text: "Fund a mission to Mars, coded entirely in Python", isCorrect: false },
-      { text: "Say 'Hmm, let me debug that financial model.'", isCorrect: false },
+      { text: "Praying 24/7", isCorrect: false },
+      { text: "Sleeping in church", isCorrect: false },
+      { text: "Saying “Thank God” even when Wi-Fi connects", isCorrect: true },
     ],
-    jokeExplanation: "We all know that 'one more line' is never just one!"
+    jokeExplanation: "Priorities! A stable internet connection is a true blessing in the modern age."
   },
   {
     id: 3,
-    questionText: "Alpha's spirit animal is most likely:",
+    questionText: "What does Alpha do when he’s angry?",
     options: [
-      { text: "An owl (wise and definitely works at night)", isCorrect: false },
-      { text: "A caffeinated squirrel (energetic and always multitasking)", isCorrect: false },
-      { text: "A rubber duck (essential for debugging complex life problems)", isCorrect: true },
-      { text: "A compiler (always finding faults, but ultimately helpful)", isCorrect: false },
+      { text: "Yells at everyone", isCorrect: false },
+      { text: "Goes silent like a phone on airplane mode", isCorrect: true },
+      { text: "Eats 3 plates of food to calm down", isCorrect: false },
     ],
-    jokeExplanation: "Because who doesn't talk through their problems with a rubber duck?"
+    jokeExplanation: "Sometimes silence is the loudest reboot sequence."
   },
   {
     id: 4,
-    questionText: "What does Alpha *really* mean when they say 'It's compiling'?",
+    questionText: "What’s one thing Alpha can’t live without?",
     options: [
-      { text: "It's actually compiling, be patient!", isCorrect: false },
-      { text: "Time for a quick 15-minute coffee break that turns into an hour.", isCorrect: true },
-      { text: "I have no idea if this will work, let's pray.", isCorrect: false },
-      { text: "I'm secretly watching cat videos.", isCorrect: false },
+      { text: "Cap", isCorrect: false },
+      { text: "His phone & Computer", isCorrect: true },
+      { text: "His socks (even in hot weather)", isCorrect: false },
     ],
-    jokeExplanation: "The sacred ritual of the 'compilation break' must be respected."
+    jokeExplanation: "The essential toolkit for modern survival and conquering the digital world!"
   },
+  {
+    id: 5,
+    questionText: "If Alpha was to choose between sleep and food, he would:",
+    options: [
+      { text: "Sleep and dream of food", isCorrect: false },
+      { text: "Eat, then sleep like a king", isCorrect: true },
+      { text: "Pray for strength to resist both", isCorrect: false },
+    ],
+    jokeExplanation: "A well-fed nap is truly the pinnacle of existence and productivity."
+  },
+  {
+    id: 6,
+    questionText: "What’s Alpha’s biggest dream?",
+    options: [
+      { text: "Finding love", isCorrect: false },
+      { text: "Helping the less privileged", isCorrect: true },
+      { text: "Eating jollof on a yacht with no network", isCorrect: false },
+    ],
+    jokeExplanation: "A truly noble aspiration! (Though the jollof yacht has its merits too.)"
+  }
 ];
 
 const BirthdayQuiz: React.FC = () => {
@@ -73,6 +89,7 @@ const BirthdayQuiz: React.FC = () => {
   const [shuffledQuestions, setShuffledQuestions] = useState<QuizQuestion[]>([]);
 
   useEffect(() => {
+    // Shuffle questions and their options once on component mount
     setShuffledQuestions(quizQuestionsData.sort(() => Math.random() - 0.5).map(q => ({
       ...q,
       options: q.options.sort(() => Math.random() - 0.5)
@@ -107,6 +124,7 @@ const BirthdayQuiz: React.FC = () => {
     setSelectedAnswer(null);
     setShowFeedback(false);
     setIsQuizFinished(false);
+    // Re-shuffle questions and options for a new game
     setShuffledQuestions(quizQuestionsData.sort(() => Math.random() - 0.5).map(q => ({
       ...q,
       options: q.options.sort(() => Math.random() - 0.5)
@@ -114,6 +132,7 @@ const BirthdayQuiz: React.FC = () => {
   };
 
   if (!shuffledQuestions.length) {
+    // Placeholder while questions are being shuffled
     return (
       <Card className="w-full max-w-lg mx-auto shadow-xl bg-card/80 backdrop-blur-sm card-glow">
         <CardHeader>
@@ -226,4 +245,3 @@ const BirthdayQuiz: React.FC = () => {
 };
 
 export default BirthdayQuiz;
-
