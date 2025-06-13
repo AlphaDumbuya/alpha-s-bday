@@ -92,11 +92,11 @@ const quizQuestionsData: QuizQuestion[] = [
     id: 8,
     questionText: "What would Alpha do if he found $10,000 on the ground?",
     options: [
-      { text: "Report to the police", isCorrect: false },
-      { text: "Dance first, ask questions later", isCorrect: true },
+      { text: "Report to the police", isCorrect: true },
+      { text: "Dance first, ask questions later", isCorrect: false },
       { text: "Sow it as a seed and claim blessings", isCorrect: false },
     ],
-    jokeExplanation: "Because spontaneous joy is the best interest rate!"
+    jokeExplanation: "The responsible choice! Though a little celebration dance afterwards wouldn't hurt."
   },
   {
     id: 9,
