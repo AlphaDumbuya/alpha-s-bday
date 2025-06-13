@@ -77,6 +77,46 @@ const quizQuestionsData: QuizQuestion[] = [
       { text: "Eating jollof on a yacht with no network", isCorrect: false },
     ],
     jokeExplanation: "A truly noble aspiration! (Though the jollof yacht has its merits too.)"
+  },
+  {
+    id: 7,
+    questionText: "Alpha’s favorite workout routine is:",
+    options: [
+      { text: "Jogging", isCorrect: false },
+      { text: "Clicking “Next episode” on Netflix", isCorrect: false },
+      { text: "Chasing mosquitoes at night", isCorrect: true },
+    ],
+    jokeExplanation: "The ultimate high-intensity interval training for reflexes and patience!"
+  },
+  {
+    id: 8,
+    questionText: "What would Alpha do if he found $10,000 on the ground?",
+    options: [
+      { text: "Report to the police", isCorrect: false },
+      { text: "Dance first, ask questions later", isCorrect: true },
+      { text: "Sow it as a seed and claim blessings", isCorrect: false },
+    ],
+    jokeExplanation: "Because spontaneous joy is the best interest rate!"
+  },
+  {
+    id: 9,
+    questionText: "If Alpha was a pastor, what would be his sermon topic?",
+    options: [
+      { text: "“Fruits of the Spirit”", isCorrect: false },
+      { text: "“The Power of food in the Last Days”", isCorrect: true },
+      { text: "“Thou Shalt Not Cheat on Jollof”", isCorrect: false },
+    ],
+    jokeExplanation: "Nourishing the soul... and the stomach, for spiritual enlightenment!"
+  },
+  {
+    id: 10,
+    questionText: "What happens when Alpha is broke?",
+    options: [
+      { text: "He goes silent like WhatsApp GB", isCorrect: false },
+      { text: "He remembers all his old crushes", isCorrect: false },
+      { text: "He becomes more spiritual than usual", isCorrect: true },
+    ],
+    jokeExplanation: "Desperate times call for divine intervention... and maybe a financial miracle."
   }
 ];
 
