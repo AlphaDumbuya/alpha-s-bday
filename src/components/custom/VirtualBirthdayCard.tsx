@@ -1,3 +1,4 @@
+
 // src/components/custom/VirtualBirthdayCard.tsx
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -55,16 +56,16 @@ const VirtualBirthdayCard: React.FC<VirtualBirthdayCardProps> = ({
         </p>
         {onShareCardViaWhatsApp && (
           <div className="mt-6 text-left">
-            <p className="text-xs text-muted-foreground/80 mb-1 font-body">send your wishes to alpha on whatsapp</p>
+            <p className="text-xs text-muted-foreground/80 mb-1 font-body">Send your wishes to Alpha on WhatsApp:</p>
             <Button 
               variant="outline" 
               size="sm" 
               onClick={onShareCardViaWhatsApp} 
-              className="border-accent text-accent hover:bg-accent/10 focus:ring-accent font-body"
+              className="border-accent text-accent hover:bg-accent/10 focus:ring-accent font-body items-center"
               aria-label="Share birthday wishes to Alpha via WhatsApp"
             >
-              <span className="mr-2">Share wishes to:</span>
-              <WhatsAppIcon className="h-5 w-5" />
+              <WhatsAppIcon className="h-5 w-5 mr-2" />
+              <span>Share Wishes with Alpha</span>
             </Button>
           </div>
         )}

@@ -26,7 +26,7 @@ export default function BirthdayBlastPage() {
   const { toast } = useToast();
 
   const handleShareCardMessageToWhatsApp = () => {
-    const phoneNumber = "23278261892";
+    const phoneNumber = "23278261892"; // Alpha's WhatsApp number
     if (!generatedMessage) {
       toast({
         title: "No Message",
