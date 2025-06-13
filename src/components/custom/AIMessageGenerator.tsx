@@ -8,14 +8,16 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { generateBirthdayMessage, type GenerateBirthdayMessageInput } from '@/ai/flows/generate-birthday-message';
-import { Loader2, Wand2 } from 'lucide-react';
+import { Loader2, Wand2, User } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
+  wisherName: z.string().min(1, { message: "Please enter your name." }).max(50, {message: "Name is too long (max 50 characters)."}),
   userInput: z.string().min(10, { message: "Please share a bit more about your feelings (at least 10 characters)." }).max(500, {message: "Input is too long (max 500 characters)."}),
 });
 
@@ -33,6 +35,7 @@ const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenera
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      wisherName: '',
       userInput: '',
     },
   });
@@ -40,7 +43,10 @@ const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenera
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
     setIsLoading(true);
     try {
-      const aiInput: GenerateBirthdayMessageInput = { userInput: values.userInput };
+      const aiInput: GenerateBirthdayMessageInput = { 
+        userInput: values.userInput,
+        wisherName: values.wisherName 
+      };
       const result = await generateBirthdayMessage(aiInput);
       onMessageGenerated(result.message);
       toast({
@@ -75,23 +81,44 @@ const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenera
           Craft a Special Message
         </CardTitle>
         <CardDescription className="font-body">
-          Describe your feelings of joy and gratitude. Our AI will help you write a heartfelt birthday message for Alpha!
+          Enter your name and describe your feelings. Our AI will help you write a heartfelt birthday message for Alpha!
         </CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent>
+          <CardContent className="space-y-4">
+            <FormField
+              control={form.control}
+              name="wisherName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="font-body text-foreground/80 flex items-center">
+                    <User className="mr-2 h-4 w-4" />
+                    Your Name
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="e.g., Jane Doe"
+                      className="bg-input focus:ring-accent font-body"
+                      {...field}
+                      aria-describedby="wisherName-message"
+                    />
+                  </FormControl>
+                  <FormMessage id="wisherName-message" />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="userInput"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-body text-foreground/80">Your feelings & thoughts:</FormLabel>
+                  <FormLabel className="font-body text-foreground/80">Your feelings & thoughts for Alpha:</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="e.g., 'So happy for Alpha's birthday! Wishing all the best...'"
                       className="resize-none bg-input focus:ring-accent font-body"
-                      rows={5}
+                      rows={4}
                       {...field}
                       aria-describedby="userInput-description userInput-message"
                     />

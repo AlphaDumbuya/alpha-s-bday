@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -17,6 +18,9 @@ const GenerateBirthdayMessageInputSchema = z.object({
     .describe(
       'User input describing the feelings of joy and gratitude to express in the birthday message.'
     ),
+  wisherName: z
+    .string()
+    .describe("The name of the person sending the birthday wishes."),
 });
 export type GenerateBirthdayMessageInput = z.infer<typeof GenerateBirthdayMessageInputSchema>;
 
@@ -38,6 +42,7 @@ const prompt = ai.definePrompt({
   prompt: `You are a helpful assistant that crafts personalized birthday messages.
 
   Create a heartfelt birthday message for Alpha based on the user's input, expressing joy and gratitude.
+  This message is from {{{wisherName}}}. Please incorporate their name naturally into the message, for example, as part of a closing like "Warmly, {{{wisherName}}}" or "Best wishes from {{{wisherName}}}".
 
   User Input: {{{userInput}}}`,
 });
