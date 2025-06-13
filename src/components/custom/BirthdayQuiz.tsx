@@ -217,12 +217,12 @@ const BirthdayQuiz: React.FC = () => {
             <Button
               key={index}
               variant={buttonVariant}
-              className={`w-full justify-start text-left h-auto py-3 px-4 font-body ${showFeedback && option.isCorrect ? 'bg-green-500/20 border-green-500 hover:bg-green-500/30' : ''} ${showFeedback && selectedAnswer === index && !option.isCorrect ? 'bg-red-500/20 border-red-500 hover:bg-red-500/30' : ''} ${showFeedback ? 'cursor-not-allowed' : ''}`}
+              className={`w-full justify-start text-left h-auto py-3 px-4 font-body whitespace-normal ${showFeedback && option.isCorrect ? 'bg-green-500/20 border-green-500 hover:bg-green-500/30' : ''} ${showFeedback && selectedAnswer === index && !option.isCorrect ? 'bg-red-500/20 border-red-500 hover:bg-red-500/30' : ''} ${showFeedback ? 'cursor-not-allowed' : ''}`}
               onClick={() => handleAnswerSelection(index)}
               disabled={showFeedback}
             >
-              {Icon && <Icon className={`mr-2 h-5 w-5 ${option.isCorrect ? 'text-green-400' : 'text-red-400'}`} />}
-              {option.text}
+              {Icon && <Icon className={`mr-2 h-5 w-5 flex-shrink-0 ${option.isCorrect ? 'text-green-400' : 'text-red-400'}`} />}
+              <span className="flex-1 min-w-0">{option.text}</span>
             </Button>
           );
         })}
@@ -245,3 +245,4 @@ const BirthdayQuiz: React.FC = () => {
 };
 
 export default BirthdayQuiz;
+
