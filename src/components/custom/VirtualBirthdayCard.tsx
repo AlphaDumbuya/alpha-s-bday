@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Gift, CakeSlice, PartyPopper } from 'lucide-react';
 
-// WhatsApp SVG Icon Component - Copied from ShareButton.tsx
+// WhatsApp SVG Icon Component
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -55,6 +55,7 @@ const VirtualBirthdayCard: React.FC<VirtualBirthdayCardProps> = ({
         </p>
         {onShareCardViaWhatsApp && (
           <div className="mt-6 text-left">
+            <p className="text-xs text-muted-foreground/80 mb-1 font-body">send your wishes to alpha on whatsapp</p>
             <Button 
               variant="outline" 
               size="sm" 
