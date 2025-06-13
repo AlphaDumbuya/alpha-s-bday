@@ -8,9 +8,10 @@ import CountdownTimer from '@/components/custom/CountdownTimer';
 import AIMessageGenerator from '@/components/custom/AIMessageGenerator';
 import VirtualBirthdayCard from '@/components/custom/VirtualBirthdayCard';
 import ShareButton from '@/components/custom/ShareButton';
-import ConfettiAnimation from '@/components/custom/ConfettiAnimation'; // Import Confetti
+import ConfettiAnimation from '@/components/custom/ConfettiAnimation';
+import BirthdayQuiz from '@/components/custom/BirthdayQuiz'; // Import the new Quiz component
 import { Separator } from '@/components/ui/separator';
-import { Gift } from 'lucide-react';
+import { Gift, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 
@@ -43,7 +44,7 @@ export default function BirthdayBlastPage() {
 
   return (
     <div className="flex flex-col items-center min-h-screen p-4 md:p-8 selection:bg-accent selection:text-accent-foreground relative">
-      <ConfettiAnimation /> {/* Add Confetti here */}
+      <ConfettiAnimation />
       <PageHeader />
 
       <main className="w-full max-w-5xl mx-auto space-y-12 md:space-y-16">
@@ -72,6 +73,19 @@ export default function BirthdayBlastPage() {
           </div>
         </section>
         
+        <Separator className="bg-border/30" />
+
+        <section aria-labelledby="quiz-heading" className="py-8">
+          <div className="text-center mb-8">
+            <h2 id="quiz-heading" className="text-3xl font-headline font-bold mb-2 text-primary-foreground flex items-center justify-center">
+              <Users className="mr-3 h-8 w-8 text-accent icon-glow" />
+              How Well Do You Know Alpha? (The Joke Edition!)
+            </h2>
+            <p className="text-muted-foreground font-body">Test your knowledge with these fun facts!</p>
+          </div>
+          <BirthdayQuiz />
+        </section>
+
         <Separator className="bg-border/30" />
 
         <section aria-labelledby="share-heading" className="text-center py-8">
