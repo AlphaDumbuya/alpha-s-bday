@@ -9,9 +9,10 @@ import AIMessageGenerator from '@/components/custom/AIMessageGenerator';
 import VirtualBirthdayCard from '@/components/custom/VirtualBirthdayCard';
 import ShareButton from '@/components/custom/ShareButton';
 import ConfettiAnimation from '@/components/custom/ConfettiAnimation';
-import BirthdayQuiz from '@/components/custom/BirthdayQuiz'; // Import the new Quiz component
+import BirthdayQuiz from '@/components/custom/BirthdayQuiz';
+import AlphaPhotoGallery from '@/components/custom/AlphaPhotoGallery'; // Import the new gallery component
 import { Separator } from '@/components/ui/separator';
-import { Gift, Users } from 'lucide-react';
+import { Gift, Users, Camera } from 'lucide-react'; // Added Camera icon
 import { useToast } from '@/hooks/use-toast';
 
 
@@ -84,6 +85,19 @@ export default function BirthdayBlastPage() {
             <p className="text-muted-foreground font-body">Test your knowledge with these fun facts!</p>
           </div>
           <BirthdayQuiz />
+        </section>
+
+        <Separator className="bg-border/30" />
+
+        <section aria-labelledby="gallery-heading" className="py-8">
+          <div className="text-center mb-8">
+            <h2 id="gallery-heading" className="text-3xl font-headline font-bold mb-2 text-primary-foreground flex items-center justify-center">
+              <Camera className="mr-3 h-8 w-8 text-accent icon-glow" />
+              Alpha's Photo Moments
+            </h2>
+            <p className="text-muted-foreground font-body">A few snapshots to celebrate Alpha!</p>
+          </div>
+          <AlphaPhotoGallery />
         </section>
 
         <Separator className="bg-border/30" />
