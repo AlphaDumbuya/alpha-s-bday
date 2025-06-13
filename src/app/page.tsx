@@ -10,6 +10,7 @@ import VirtualBirthdayCard from '@/components/custom/VirtualBirthdayCard';
 import ShareButton from '@/components/custom/ShareButton';
 import { Separator } from '@/components/ui/separator';
 import { Gift } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 
 export default function BirthdayBlastPage() {
@@ -19,6 +20,25 @@ export default function BirthdayBlastPage() {
   const alphaPhotoUrl = "https://code-alpha-image-gallary.vercel.app/alpha.jpeg";
   const targetDate = "2025-06-15T00:00:00"; // Alpha's Birthday
   const cardRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+
+  const handleShareCardMessageToWhatsApp = () => {
+    const phoneNumber = "23278261892";
+    if (!generatedMessage) {
+      toast({
+        title: "No Message",
+        description: "There's no message to share yet.",
+        variant: "destructive",
+      });
+      return;
+    }
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(generatedMessage)}`;
+    window.open(whatsappUrl, '_blank');
+    toast({
+      title: "WhatsApp Opened",
+      description: "Your message is ready to be sent to Alpha!",
+    });
+  };
 
   return (
     <div className="flex flex-col items-center min-h-screen p-4 md:p-8 selection:bg-accent selection:text-accent-foreground">
@@ -45,6 +65,7 @@ export default function BirthdayBlastPage() {
               message={generatedMessage} 
               photoUrl={alphaPhotoUrl} 
               alphaName="Alpha Dumbuya"
+              onShareCardViaWhatsApp={handleShareCardMessageToWhatsApp}
             />
           </div>
         </section>
