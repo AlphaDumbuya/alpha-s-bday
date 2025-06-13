@@ -15,7 +15,7 @@ export default function BirthdayBlastPage() {
   const [generatedMessage, setGeneratedMessage] = useState(
     "Dearest Alpha,\n\nOn this special day, I'm sending you waves of joy and heartfelt wishes for a truly fantastic birthday! May this new year of life bring you endless happiness, exciting adventures, and continued success in all your endeavors.\n\nThank you for being an inspiration. Your passion and dedication shine brightly!\n\nCheers to you!"
   );
-  const alphaPhotoUrl = "https://storage.googleapis.com/altostrat-public-bucket/L15_Images/alpha-dumbuya.jpeg";
+  const alphaPhotoUrl = "https://code-alpha-image-gallary.vercel.app/alpha.jpeg";
   const targetDate = "2025-06-15T00:00:00"; // Alpha's Birthday
 
   return (

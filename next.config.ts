@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: 'storage.googleapis.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'code-alpha-image-gallary.vercel.app',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
