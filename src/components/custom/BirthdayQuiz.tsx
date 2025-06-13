@@ -188,7 +188,7 @@ const BirthdayQuiz: React.FC = () => {
       <CardHeader>
         <CardTitle className="font-headline text-xl md:text-2xl flex items-start">
             <Lightbulb className="mr-3 h-6 w-6 md:h-7 md:w-7 text-accent icon-glow flex-shrink-0 mt-1" />
-            <span className="min-w-0">{currentQuestion.questionText}</span>
+            <span className="min-w-0 flex-1">{currentQuestion.questionText}</span>
         </CardTitle>
         <CardDescription className="font-body text-sm text-muted-foreground">
           Question {currentQuestionIndex + 1} of {shuffledQuestions.length}
@@ -245,4 +245,3 @@ const BirthdayQuiz: React.FC = () => {
 };
 
 export default BirthdayQuiz;
-
