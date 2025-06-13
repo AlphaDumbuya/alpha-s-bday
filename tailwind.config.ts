@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
+        headline: ['Roboto', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -88,10 +88,32 @@ export default {
             height: '0',
           },
         },
+        'pulse-glow': {
+          '0%, 100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+            textShadow: '0 0 5px hsl(var(--accent-hsl-val)), 0 0 10px hsl(var(--accent-hsl-val))',
+          },
+          '50%': {
+            opacity: '0.8',
+            transform: 'scale(1.05)',
+            textShadow: '0 0 10px hsl(var(--accent-hsl-val)), 0 0 20px hsl(var(--accent-hsl-val))',
+          }
+        },
+        'subtle-float': {
+          '0%, 100%': {
+            transform: 'translateY(0)',
+          },
+          '50%': {
+            transform: 'translateY(-10px)',
+          },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'pulse-glow': 'pulse-glow 2.5s infinite ease-in-out',
+        'subtle-float': 'subtle-float 5s infinite ease-in-out',
       },
     },
   },
