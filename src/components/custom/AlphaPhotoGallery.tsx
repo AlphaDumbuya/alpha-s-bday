@@ -2,59 +2,63 @@
 // src/components/custom/AlphaPhotoGallery.tsx
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Download } from 'lucide-react';
 
-const galleryItems = [
-  {
-    id: 1,
-    src: "https://placehold.co/600x400.png",
-    alt: "Placeholder image of Alpha at an event",
-    dataAiHint: "event celebration",
-  },
-  {
-    id: 2,
-    src: "https://placehold.co/600x450.png",
-    alt: "Placeholder image of Alpha smiling",
-    dataAiHint: "portrait smile",
-  },
-  {
-    id: 3,
-    src: "https://placehold.co/650x400.png",
-    alt: "Placeholder image of Alpha with friends",
-    dataAiHint: "friends group",
-  },
-  {
-    id: 4,
-    src: "https://placehold.co/550x400.png",
-    alt: "Placeholder image of Alpha working",
-    dataAiHint: "office computer",
-  },
+// Base list of gallery items with new URLs
+const initialGalleryItems = [
+  { id: 1, src: "https://code-alpha-image-gallary.vercel.app/alpha3.jpeg", alt: "Alpha's moment 1", dataAiHint: "portrait candid" },
+  { id: 2, src: "https://code-alpha-image-gallary.vercel.app/alpha2.jpeg", alt: "Alpha's moment 2", dataAiHint: "casual outdoor" },
+  { id: 3, src: "https://code-alpha-image-gallary.vercel.app/alpha1.jpeg", alt: "Alpha's moment 3", dataAiHint: "event group" },
+  { id: 4, src: "https://code-alpha-image-gallary.vercel.app/alpha4.jpeg", alt: "Alpha's moment 4", dataAiHint: "portrait happy" },
+  { id: 5, src: "https://code-alpha-image-gallary.vercel.app/alpha5.jpeg", alt: "Alpha's moment 5", dataAiHint: "activity fun" },
+  { id: 6, src: "https://code-alpha-image-gallary.vercel.app/alpha6.jpeg", alt: "Alpha's moment 6", dataAiHint: "candid smile" },
+  { id: 7, src: "https://code-alpha-image-gallary.vercel.app/alpha7.jpeg", alt: "Alpha's moment 7", dataAiHint: "group friends" },
+  { id: 8, src: "https://code-alpha-image-gallary.vercel.app/alpha8.jpeg", alt: "Alpha's moment 8", dataAiHint: "outdoor scene" },
+  { id: 9, src: "https://code-alpha-image-gallary.vercel.app/alpha10.jpeg", alt: "Alpha's moment 9", dataAiHint: "portrait style" },
+  { id: 10, src: "https://code-alpha-image-gallary.vercel.app/alpha11.jpeg", alt: "Alpha's moment 10", dataAiHint: "event gathering" },
+  { id: 11, src: "https://code-alpha-image-gallary.vercel.app/alpha12.jpeg", alt: "Alpha's moment 11", dataAiHint: "casual portrait" },
 ];
 
 const AlphaPhotoGallery: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [shuffledGalleryItems, setShuffledGalleryItems] = useState<typeof initialGalleryItems>([]);
+
+  useEffect(() => {
+    // Shuffle the gallery items once on component mount
+    const shuffled = [...initialGalleryItems].sort(() => Math.random() - 0.5);
+    setShuffledGalleryItems(shuffled);
+    setCurrentIndex(0); // Reset index in case it was set before shuffle
+  }, []);
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? galleryItems.length - 1 : prevIndex - 1
+      prevIndex === 0 ? shuffledGalleryItems.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === galleryItems.length - 1 ? 0 : prevIndex + 1
+      prevIndex === shuffledGalleryItems.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  if (!galleryItems.length) {
-    return <p>No photos to display.</p>;
+  if (!shuffledGalleryItems.length) {
+    return (
+        <Card className="w-full max-w-2xl overflow-hidden shadow-lg card-glow bg-card/80 backdrop-blur-sm">
+            <CardContent className="p-0 relative">
+                <div className="aspect-w-16 aspect-h-9 bg-muted flex items-center justify-center">
+                    <p className="text-muted-foreground">Loading gallery...</p>
+                </div>
+            </CardContent>
+        </Card>
+    );
   }
 
-  const currentImage = galleryItems[currentIndex];
+  const currentImage = shuffledGalleryItems[currentIndex];
 
   const handleDownload = async () => {
     try {
@@ -69,8 +73,7 @@ const AlphaPhotoGallery: React.FC = () => {
       const cleanedAlt = currentImage.alt.replace(/[^a-z0-9_]+/gi, '-').replace(/^-+|-+$/g, '');
       const filenameBase = cleanedAlt || `alpha-photo-${currentIndex + 1}`;
       
-      // Try to get extension from src, default to blob type or png
-      let extension = 'png'; // default
+      let extension = 'jpeg'; // Default to jpeg for these images
       const srcExtMatch = currentImage.src.match(/\.([0-9a-z]+)(?:[\?#]|$)/i);
       if (srcExtMatch && srcExtMatch[1]) {
         extension = srcExtMatch[1];
@@ -84,10 +87,9 @@ const AlphaPhotoGallery: React.FC = () => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      URL.revokeObjectURL(link.href); // Clean up
+      URL.revokeObjectURL(link.href);
     } catch (error) {
       console.error("Error downloading image:", error);
-      // Fallback for restricted cross-origin or other errors: open in new tab
       const newWindow = window.open(currentImage.src, '_blank');
       if (newWindow) {
         newWindow.focus();
@@ -96,7 +98,6 @@ const AlphaPhotoGallery: React.FC = () => {
       }
     }
   };
-
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -111,7 +112,7 @@ const AlphaPhotoGallery: React.FC = () => {
               height={450}
               className="object-cover w-full h-full"
               data-ai-hint={currentImage.dataAiHint}
-              priority={currentIndex === 0}
+              priority={currentIndex === 0} // Prioritize the first image in the shuffled list
             />
           </div>
         </CardContent>
@@ -146,7 +147,7 @@ const AlphaPhotoGallery: React.FC = () => {
         </Button>
       </div>
       <p className="mt-2 text-sm text-muted-foreground font-body">
-        Image {currentIndex + 1} of {galleryItems.length}
+        Image {currentIndex + 1} of {shuffledGalleryItems.length}
       </p>
     </div>
   );
