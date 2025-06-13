@@ -105,4 +105,26 @@
   .animate-subtle-float {
     animation: subtle-float 5s infinite ease-in-out;
   }
+
+  /* Confetti styles */
+  .confetti-piece {
+    position: absolute;
+    top: -20px; /* Start above the screen */
+    border-radius: 2px;
+    opacity: 0.9;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; /* You might want '1' if they don't reappear */
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(105vh) rotate(720deg); /* Fall below the screen */
+      opacity: 0;
+    }
+  }
 }

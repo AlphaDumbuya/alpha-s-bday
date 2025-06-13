@@ -8,6 +8,7 @@ import CountdownTimer from '@/components/custom/CountdownTimer';
 import AIMessageGenerator from '@/components/custom/AIMessageGenerator';
 import VirtualBirthdayCard from '@/components/custom/VirtualBirthdayCard';
 import ShareButton from '@/components/custom/ShareButton';
+import ConfettiAnimation from '@/components/custom/ConfettiAnimation'; // Import Confetti
 import { Separator } from '@/components/ui/separator';
 import { Gift } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -41,7 +42,8 @@ export default function BirthdayBlastPage() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-4 md:p-8 selection:bg-accent selection:text-accent-foreground">
+    <div className="flex flex-col items-center min-h-screen p-4 md:p-8 selection:bg-accent selection:text-accent-foreground relative">
+      <ConfettiAnimation /> {/* Add Confetti here */}
       <PageHeader />
 
       <main className="w-full max-w-5xl mx-auto space-y-12 md:space-y-16">
