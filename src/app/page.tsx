@@ -50,7 +50,7 @@ export default function BirthdayBlastPage() {
           <h2 id="share-heading" className="text-2xl font-headline font-semibold mb-6 text-primary-foreground">
             Spread the Joy!
           </h2>
-          <ShareButton />
+          <ShareButton messageToShare={generatedMessage} />
         </section>
       </main>
 
