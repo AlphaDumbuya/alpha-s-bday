@@ -62,7 +62,7 @@ const VirtualBirthdayCard: React.FC<VirtualBirthdayCardProps> = ({
               className="border-accent text-accent hover:bg-accent/10 focus:ring-accent font-body"
               aria-label="Share birthday wishes to Alpha via WhatsApp"
             >
-              <span className="mr-2">Share bday wishes to:</span>
+              <span className="mr-2">Share wishes to:</span>
               <WhatsAppIcon className="h-5 w-5" />
             </Button>
           </div>
