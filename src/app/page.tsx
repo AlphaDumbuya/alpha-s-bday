@@ -112,7 +112,9 @@ export default function BirthdayBlastPage() {
 
       <footer className="w-full max-w-5xl mx-auto text-center py-8 mt-12 border-t border-border/30">
         <p className="text-sm text-muted-foreground font-body">
-          Made with <Gift className="inline h-4 w-4 text-accent" /> for Alpha Dumbuya&apos;s Birthday!
+          Made with <Gift className="inline h-4 w-4 text-accent" /> and all our love for your special day, Alpha! 
+          <br />
+          From Salamatu & Elizabeth Fatu Dumbuya.
         </p>
          <p className="text-xs text-muted-foreground/70 font-body mt-1">
           &copy; {new Date().getFullYear()} Salamatu Dumbuya.
