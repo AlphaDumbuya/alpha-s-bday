@@ -115,7 +115,7 @@ export default function BirthdayBlastPage() {
           Made with <Gift className="inline h-4 w-4 text-accent" /> for Alpha Dumbuya&apos;s Birthday!
         </p>
          <p className="text-xs text-muted-foreground/70 font-body mt-1">
-          &copy; {new Date().getFullYear()} Birthday Blast Creators.
+          &copy; {new Date().getFullYear()} Salamatu Dumbuya.
         </p>
       </footer>
     </div>
