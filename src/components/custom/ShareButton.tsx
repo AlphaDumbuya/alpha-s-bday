@@ -76,8 +76,8 @@ const ShareButton: React.FC<ShareButtonProps> = ({ messageToShare }) => {
 
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-      <Button 
-        onClick={handleSharePage} 
+      <Button
+        onClick={handleSharePage}
         className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 focus:ring-accent font-headline text-lg py-6 px-8"
         aria-label="Share Alpha's Birthday Page Link"
         disabled={!pageUrl}
