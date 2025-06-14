@@ -42,11 +42,14 @@ const ShareButton: React.FC<ShareButtonProps> = ({ messageToShare }) => {
       return;
     }
 
+    const shareTitle = "Happy Birthday Alpha Dumbuya!";
+    const shareText = "You're invited to Alpha Dumbuya's Birthday Blast! Check out this special page for his celebration.";
+
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Happy Birthday Alpha Dumbuya!',
-          text: 'Check out this special birthday page I made for Alpha!',
+          title: shareTitle,
+          text: shareText,
           url: pageUrl,
         });
         showTemporaryState('Shared!', Check);
@@ -87,3 +90,4 @@ const ShareButton: React.FC<ShareButtonProps> = ({ messageToShare }) => {
 };
 
 export default ShareButton;
+
