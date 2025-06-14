@@ -119,6 +119,9 @@ export default function BirthdayBlastPage() {
          <p className="text-xs text-muted-foreground/70 font-body mt-1">
           &copy; {new Date().getFullYear()} Salamatu Dumbuya.
         </p>
+        <p className="text-xs text-muted-foreground/70 font-body mt-1">
+          Designed by Alpha Dumbuya.
+        </p>
       </footer>
     </div>
   );
