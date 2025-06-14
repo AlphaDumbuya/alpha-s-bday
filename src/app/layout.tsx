@@ -2,9 +2,24 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import { Roboto, Open_Sans } from 'next/font/google';
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  variable: '--font-roboto',
+  display: 'swap',
+});
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-open-sans',
+  display: 'swap',
+});
 
 const alphaPhotoUrl = "https://code-alpha-image-gallary.vercel.app/alpha.jpeg";
-const pageUrl = "https://birthday-blast-alpha.web.app"; // Replace with your actual deployed page URL if known, otherwise, relative paths are fine for some platforms.
+const pageUrl = "https://birthday-blast-alpha.web.app";
 const siteName = "Birthday Blast for Alpha!";
 const pageTitle = "You're Invited to Alpha Dumbuya's Birthday Blast!";
 const pageDescription = "Join us in celebrating Alpha Dumbuya's birthday! Check out this special page with a countdown, AI message generator, and virtual card.";
@@ -18,39 +33,35 @@ export const metadata: Metadata = {
   
   openGraph: {
     type: 'website',
-    url: pageUrl, // Best to use the canonical URL of your page here
+    url: pageUrl,
     title: pageTitle,
     description: pageDescription,
     siteName: siteName,
     images: [
       {
-        url: alphaPhotoUrl, // Must be an absolute URL
-        width: 1200, // Recommended Open Graph image width
-        height: 630, // Recommended Open Graph image height
+        url: alphaPhotoUrl,
+        width: 1200,
+        height: 630,
         alt: `A festive birthday image for Alpha Dumbuya`,
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image', // summary_large_image shows a large preview image
-    // site: '@yourXhandle', // Optional: your X (Twitter) handle
-    // creator: '@creatorXhandle', // Optional: content creator's X (Twitter) handle
+    card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: [alphaPhotoUrl], // Must be an absolute URL
+    images: [alphaPhotoUrl],
   },
-  // Apple-specific tags
   appleWebApp: {
     capable: true,
     title: pageTitle,
     statusBarStyle: 'black-translucent',
   },
-  // Icons - You can add more specific icon links if you have them
   icons: {
-    icon: '/favicon.ico', // Example, ensure you have a favicon
-    apple: '/apple-touch-icon.png', // Example for Apple touch icon
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
-  manifest: '/site.webmanifest', // Example, if you have a web app manifest
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -59,13 +70,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="en" className={`${roboto.variable} ${openSans.variable} dark`}>
+      <head />
       <body className="font-body antialiased min-h-screen bg-background text-foreground">
         {children}
         <Toaster />
