@@ -59,7 +59,7 @@ export default function BirthdayBlastPage() {
   const { toast } = useToast();
 
   const handleShareCardMessageToWhatsApp = () => {
-    const phoneNumber = "49157888816780";
+    const phoneNumber = "4915788816780";
     if (!generatedMessage) {
       toast({
         title: "No Message",

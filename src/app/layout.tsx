@@ -19,17 +19,17 @@ const openSans = Open_Sans({
 });
 
 const alphaPhotoUrl = "https://code-alpha-image-gallary.vercel.app/alpha.jpeg";
-const pageUrl = "https://birthday-blast-alpha.web.app";
-const siteName = "Birthday Blast for Alpha!";
-const pageTitle = "You're Invited to Alpha Dumbuya's Birthday Blast!";
-const pageDescription = "Join us in celebrating Alpha Dumbuya's birthday! Check out this special page with a countdown, AI message generator, and virtual card.";
+const pageUrl = "https://alpha-s-bday.vercel.app";
+const siteName = "Birthday Blast for Justious Samura Dumbuya!";
+const pageTitle = "You're Invited to Justious Samura Dumbuya's Birthday Blast!";
+const pageDescription = "Join us in celebrating Justious Samura Dumbuya's birthday! Check out this special page with a countdown, AI message generator, and virtual card.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   applicationName: siteName,
   authors: [{ name: "Birthday Blast Creators" }],
-  keywords: ["birthday", "celebration", "Alpha Dumbuya", "virtual card", "AI message"],
+  keywords: ["birthday", "celebration", "Justious Samura Dumbuya", "virtual card", "AI message"],
   
   openGraph: {
     type: 'website',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         url: alphaPhotoUrl,
         width: 1200,
         height: 630,
-        alt: `A festive birthday image for Alpha Dumbuya`,
+        alt: `A festive birthday image for Justious Samura Dumbuya`,
       },
     ],
   },
