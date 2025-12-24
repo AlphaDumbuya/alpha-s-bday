@@ -1,9 +1,9 @@
 
 // src/components/custom/VirtualBirthdayCard.tsx
-import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Gift, CakeSlice, PartyPopper } from 'lucide-react';
+import Image from 'next/image';
+import { Gift, CakeSlice, PartyPopper, Sparkles } from 'lucide-react';
 
 // WhatsApp SVG Icon Component
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -33,47 +33,47 @@ const VirtualBirthdayCard: React.FC<VirtualBirthdayCardProps> = ({
   onShareCardViaWhatsApp,
 }) => {
   return (
-    <Card className="w-full shadow-xl overflow-hidden bg-card/80 backdrop-blur-sm card-glow">
-      <CardHeader className="p-0 relative">
-        <Image
-          src={photoUrl}
-          alt={`Photo of ${alphaName}`}
-          width={600}
-          height={400}
-          className="w-full h-64 object-cover"
-          data-ai-hint="portrait person"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/70 to-transparent" />
-        <div className="absolute bottom-0 left-0 p-6">
-          <CardTitle className="font-headline text-3xl text-primary-foreground">Happy Birthday, {alphaName}!</CardTitle>
-          <CardDescription className="font-body text-primary-foreground/80">Here&apos;s a special message for you:</CardDescription>
-        </div>
+    <Card className="w-full shadow-2xl overflow-hidden bg-card/80 backdrop-blur-sm card-glow border border-accent/20">
+      <CardHeader className="p-4 sm:p-6 md:p-8 bg-gradient-to-r from-cyan-400/10 to-blue-400/10">
+        <Sparkles className="h-8 w-8 sm:h-10 sm:w-10 text-cyan-400 mb-3" />
+        <CardTitle className="font-headline text-xl sm:text-2xl md:text-3xl text-primary-foreground leading-tight">Happy Birthday, {alphaName}!</CardTitle>
+        <CardDescription className="font-body text-xs sm:text-sm text-primary-foreground/80 mt-2">Here&apos;s a special message for you:</CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
-        <p className="font-body text-lg leading-relaxed text-foreground/90 whitespace-pre-wrap">
+      <CardContent className="pt-6 sm:pt-8 pb-4 sm:pb-6">
+        <p className="font-body text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-foreground/90 whitespace-pre-wrap">
           {message}
         </p>
         {onShareCardViaWhatsApp && (
-          <div className="mt-6 text-left">
-            <p className="text-xs text-muted-foreground/80 mb-1 font-body">Send your wishes to Alpha on WhatsApp:</p>
+          <div className="mt-6 sm:mt-8 text-left pt-4 sm:pt-6 border-t border-border/50">
+            <p className="text-xs sm:text-sm text-muted-foreground/80 mb-2 sm:mb-3 font-body font-semibold">Send your wishes to Justious on WhatsApp:</p>
             <Button 
-              variant="outline" 
+              variant="default" 
               size="sm" 
               onClick={onShareCardViaWhatsApp} 
-              className="border-accent text-accent hover:bg-accent/10 focus:ring-accent font-body items-center"
-              aria-label="Share birthday wishes to Alpha via WhatsApp"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 focus:ring-accent font-body font-semibold items-center w-full text-xs sm:text-sm"
+              aria-label="Share birthday wishes to Justious via WhatsApp"
             >
-              <WhatsAppIcon className="h-5 w-5 mr-2" />
-              <span>Share Wishes with Alpha</span>
+              <WhatsAppIcon className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+              <span>Share Wishes</span>
             </Button>
           </div>
         )}
       </CardContent>
-      <CardFooter className="flex justify-center items-center gap-4 pt-4 border-t border-border/50">
-        <Gift className="h-6 w-6 text-accent icon-glow" />
-        <CakeSlice className="h-6 w-6 text-accent icon-glow" />
-        <PartyPopper className="h-6 w-6 text-accent icon-glow" />
+      <CardFooter className="flex justify-center items-center gap-3 sm:gap-6 pt-3 sm:pt-4 border-t border-border/50 bg-card/50 flex-wrap">
+        <div className="flex gap-3 sm:gap-4">
+          <div className="flex flex-col items-center">
+            <Gift className="h-5 w-5 sm:h-6 sm:w-6 text-accent icon-glow mb-1 animate-bounce" />
+            <span className="text-xs text-muted-foreground font-body">Gift</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <CakeSlice className="h-5 w-5 sm:h-6 sm:w-6 text-accent icon-glow mb-1 animate-bounce [animation-delay:0.2s]" />
+            <span className="text-xs text-muted-foreground font-body">Cake</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <PartyPopper className="h-5 w-5 sm:h-6 sm:w-6 text-accent icon-glow mb-1 animate-bounce [animation-delay:0.4s]" />
+            <span className="text-xs text-muted-foreground font-body">Party</span>
+          </div>
+        </div>
       </CardFooter>
     </Card>
   );

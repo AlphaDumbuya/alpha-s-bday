@@ -3,6 +3,8 @@
 "use client";
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import PageHeader from '@/components/custom/PageHeader';
 import CountdownTimer from '@/components/custom/CountdownTimer';
 import AIMessageGenerator from '@/components/custom/AIMessageGenerator';
@@ -10,23 +12,54 @@ import VirtualBirthdayCard from '@/components/custom/VirtualBirthdayCard';
 import ShareButton from '@/components/custom/ShareButton';
 import ConfettiAnimation from '@/components/custom/ConfettiAnimation';
 import BirthdayQuiz from '@/components/custom/BirthdayQuiz';
-import AlphaPhotoGallery from '@/components/custom/AlphaPhotoGallery'; // Import the new gallery component
+import AlphaPhotoGallery from '@/components/custom/AlphaPhotoGallery';
 import { Separator } from '@/components/ui/separator';
-import { Gift, Users, Camera } from 'lucide-react'; // Added Camera icon
+import { Gift, Users, Camera, Sparkles, Heart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const floatingVariants = {
+  initial: { y: 0 },
+  animate: {
+    y: [-10, 10, -10],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+};
 
 export default function BirthdayBlastPage() {
   const [generatedMessage, setGeneratedMessage] = useState(
-    "Dearest Alpha,\n\nOn this special day, I'm sending you waves of joy and heartfelt wishes for a truly fantastic birthday! May this new year of life bring you endless happiness, exciting adventures, and continued success in all your endeavors.\n\nThank you for being an inspiration. Your passion and dedication shine brightly!\n\nCheers to you!"
+    "Happy 3rd Birthday, Justious! 🎉\n\nWishing you an absolutely amazing day filled with laughter, fun, and all your favorite things! You're such an awesome little legend, and we love your silly giggles, your big adventurous spirit, and the way you light up every room.\n\nHere's to more cake, more laughs, more playing, and endless fun! You deserve the BEST!\n\nHave a fantastic birthday! 🎂🎈🎊"
   );
   const alphaPhotoUrl = "https://code-alpha-image-gallary.vercel.app/alpha.jpeg";
-  const targetDate = "2025-06-15T00:00:00"; // Alpha's Birthday
+  const targetDate = "2025-12-26T00:00:00"; // Justious's Birthday
   const cardRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
   const handleShareCardMessageToWhatsApp = () => {
-    const phoneNumber = "23278261892"; // Alpha's WhatsApp number
+    const phoneNumber = "49157888816780";
     if (!generatedMessage) {
       toast({
         title: "No Message",
@@ -35,94 +68,227 @@ export default function BirthdayBlastPage() {
       });
       return;
     }
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(generatedMessage)}`;
+    
+    const shareMessage = `🎉 *Justious Samura Dumbuya's Birthday Celebration* 🎉\n\n${generatedMessage}\n\n💝 Join us in celebrating! 💝\n\nVisit: https://alpha-s-bday.vercel.app`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(shareMessage)}`;
     window.open(whatsappUrl, '_blank');
     toast({
-      title: "WhatsApp Opened",
-      description: "Your message is ready to be sent to Alpha!",
+      title: "🎊 Share Ready!",
+      description: "WhatsApp opened! Send your birthday wishes to Justious now! 🎂",
     });
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-4 md:p-8 selection:bg-accent selection:text-accent-foreground relative">
-      <ConfettiAnimation />
-      <PageHeader />
-
-      <main className="w-full max-w-5xl mx-auto space-y-12 md:space-y-16">
-        <section aria-labelledby="countdown-heading">
-          <h2 id="countdown-heading" className="sr-only">Birthday Countdown</h2>
-          <CountdownTimer targetDate={targetDate} />
-        </section>
-
-        <Separator className="bg-border/30" />
-
-        <section aria-labelledby="card-creation-heading" className="space-y-8 md:space-y-0 md:grid md:grid-cols-12 md:gap-8 items-start">
-           <h2 id="card-creation-heading" className="sr-only">Create and View Birthday Card</h2>
-          <div className="md:col-span-5 lg:col-span-4">
-            <AIMessageGenerator 
-              onMessageGenerated={setGeneratedMessage} 
-              onGenerationCompleteScrollToRef={cardRef}
-            />
-          </div>
-          <div className="md:col-span-7 lg:col-span-8 mt-8 md:mt-0" ref={cardRef}>
-            <VirtualBirthdayCard 
-              message={generatedMessage} 
-              photoUrl={alphaPhotoUrl} 
-              alphaName="Alpha Dumbuya"
-              onShareCardViaWhatsApp={handleShareCardMessageToWhatsApp}
-            />
-          </div>
-        </section>
+    <motion.div 
+      className="flex flex-col items-center min-h-screen w-full p-2 sm:p-4 md:p-8 selection:bg-accent selection:text-accent-foreground relative bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 overflow-x-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      {/* Premium Animated Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        {/* Main gradient blobs */}
+        <motion.div 
+          className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-l from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, delay: 1 }}
+        />
+        <motion.div 
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{ duration: 10, repeat: Infinity, delay: 2 }}
+        />
         
-        <Separator className="bg-border/30" />
+        {/* Additional floating blobs for more movement */}
+        <motion.div 
+          className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-br from-cyan-300/15 to-transparent rounded-full blur-2xl"
+          animate={{
+            x: [-50, 50, -50],
+            y: [0, 50, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-tl from-purple-300/15 to-transparent rounded-full blur-2xl"
+          animate={{
+            x: [50, -50, 50],
+            y: [-50, 50, -50],
+            scale: [1.1, 1, 1.1],
+          }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+      </div>
 
-        <section aria-labelledby="quiz-heading" className="py-8">
-          <div className="text-center mb-8">
-            <h2 id="quiz-heading" className="text-3xl font-headline font-bold mb-2 text-primary-foreground flex items-center justify-center">
-              <Users className="mr-3 h-8 w-8 text-accent icon-glow" />
-              How Well Do You Know Alpha? (The Joke Edition!)
-            </h2>
-            <p className="text-muted-foreground font-body">Test your knowledge with these fun facts!</p>
-          </div>
-          <BirthdayQuiz />
-        </section>
+      <ConfettiAnimation />
+      
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="w-full relative z-10"
+      >
+        <motion.div variants={itemVariants}>
+          <PageHeader />
+        </motion.div>
 
-        <Separator className="bg-border/30" />
+        <main className="w-full max-w-7xl mx-auto space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24 relative z-10 px-2 sm:px-4">
+          {/* Countdown Section */}
+          <motion.section variants={itemVariants} className="flex justify-center w-full">
+            <CountdownTimer targetDate={targetDate} />
+          </motion.section>
 
-        <section aria-labelledby="gallery-heading" className="py-8">
-          <div className="text-center mb-8">
-            <h2 id="gallery-heading" className="text-3xl font-headline font-bold mb-2 text-primary-foreground flex items-center justify-center">
-              <Camera className="mr-3 h-8 w-8 text-accent icon-glow" />
-              Alpha's Photo Moments
-            </h2>
-            <p className="text-muted-foreground font-body">A few snapshots to celebrate Alpha!</p>
-          </div>
-          <AlphaPhotoGallery />
-        </section>
+          <motion.div variants={itemVariants} className="w-full">
+            <Separator className="bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
+          </motion.div>
 
-        <Separator className="bg-border/30" />
+          {/* Featured Image Section */}
+          <motion.section 
+            variants={itemVariants}
+            className="flex justify-center w-full px-2 sm:px-4"
+          >
+            <div className="relative w-full max-w-3xl h-auto rounded-2xl overflow-hidden shadow-2xl card-glow border border-accent/20">
+              <Image 
+                src="/special-message-bg-img.png"
+                alt="Justious Samura Dumbuya"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </motion.section>
 
-        <section aria-labelledby="share-heading" className="text-center py-8">
-          <h2 id="share-heading" className="text-2xl font-headline font-semibold mb-6 text-primary-foreground">
-            Spread the Joy!
-          </h2>
-          <ShareButton messageToShare={generatedMessage} />
-        </section>
-      </main>
+          <motion.div variants={itemVariants} className="w-full">
+            <Separator className="bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
+          </motion.div>
 
-      <footer className="w-full max-w-5xl mx-auto text-center py-8 mt-12 border-t border-border/30">
-        <p className="text-sm text-muted-foreground font-body">
-          Made with <Gift className="inline h-4 w-4 text-accent" /> and all our love for your special day, Alpha! 
-          <br />
-          From Salamatu & Elizabeth Fatu Dumbuya.
-        </p>
-         <p className="text-xs text-muted-foreground/70 font-body mt-1">
-          &copy; {new Date().getFullYear()} Salamatu Dumbuya.
-        </p>
-        <p className="text-xs text-muted-foreground/70 font-body mt-1">
-          Designed by Alpha Dumbuya.
-        </p>
-      </footer>
-    </div>
+          {/* Message Generation & Card Section */}
+          <motion.section 
+            variants={itemVariants}
+            aria-labelledby="card-creation-heading" 
+            className="space-y-6 sm:space-y-8 md:space-y-0 w-full md:grid md:grid-cols-12 md:gap-6 lg:gap-8 items-start"
+          >
+            <h2 id="card-creation-heading" className="sr-only">Create and View Birthday Card</h2>
+            <motion.div 
+              className="w-full md:col-span-5 lg:col-span-4 px-1 sm:px-0"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <AIMessageGenerator 
+                onMessageGenerated={setGeneratedMessage} 
+                onGenerationCompleteScrollToRef={cardRef}
+              />
+            </motion.div>
+            <motion.div 
+              className="w-full md:col-span-7 lg:col-span-8 mt-6 md:mt-0 px-1 sm:px-0" 
+              ref={cardRef}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <VirtualBirthdayCard 
+                message={generatedMessage} 
+                photoUrl={alphaPhotoUrl} 
+                alphaName="Justious Samura Dumbuya"
+                onShareCardViaWhatsApp={handleShareCardMessageToWhatsApp}
+              />
+            </motion.div>
+          </motion.section>
+          
+          <motion.div variants={itemVariants} className="w-full">
+            <Separator className="bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
+          </motion.div>
+
+          {/* Quiz Section */}
+          <motion.section 
+            variants={itemVariants}
+            aria-labelledby="quiz-heading" 
+            className="py-6 sm:py-8 md:py-12 w-full px-1 sm:px-0"
+          >
+            <div className="text-center mb-6 sm:mb-8">
+              <motion.h2 
+                id="quiz-heading" 
+                className="text-xl sm:text-2xl md:text-3xl font-headline font-bold mb-1 sm:mb-2 text-cyan-300 flex items-center justify-center flex-wrap"
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Users className="mr-2 h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-cyan-400 icon-glow" />
+                <span className="text-center">Know Justious?</span>
+              </motion.h2>
+              <p className="text-blue-200/70 font-body text-xs sm:text-sm">(The Joke Edition!)</p>
+            </div>
+            <div className="px-1 sm:px-0">
+              <BirthdayQuiz />
+            </div>
+          </motion.section>
+
+          <motion.div variants={itemVariants} className="w-full">
+            <Separator className="bg-gradient-to-r from-transparent via-purple-400/30 to-transparent" />
+          </motion.div>
+
+          {/* Gallery Section */}
+          <motion.section 
+            variants={itemVariants}
+            aria-labelledby="share-heading" 
+            className="text-center py-8 sm:py-10 md:py-12 w-full px-1 sm:px-0"
+          >
+            <motion.h2 
+              id="share-heading" 
+              className="text-xl sm:text-2xl md:text-3xl font-headline font-bold mb-6 sm:mb-8 text-cyan-300"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity }}
+            >
+              Spread the Joy!
+            </motion.h2>
+            <ShareButton messageToShare={generatedMessage} />
+          </motion.section>
+        </main>
+
+        {/* Premium Footer */}
+        <motion.footer 
+          className="w-full max-w-5xl mx-auto text-center py-8 md:py-12 px-4 mt-16 border-t border-cyan-400/20 relative z-10 backdrop-blur-sm"
+          variants={itemVariants}
+        >
+          <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="flex items-center justify-center gap-2 mb-4"
+          >
+            <Heart className="h-4 w-4 md:h-5 md:w-5 text-red-400 fill-red-400" />
+            <p className="text-xs md:text-sm text-cyan-100 font-body">
+              Made with love for your special day, Justious! 
+            </p>
+            <Heart className="h-4 w-4 md:h-5 md:w-5 text-red-400 fill-red-400" />
+          </motion.div>
+          <p className="text-xs md:text-sm text-blue-200 font-body mb-2">
+            From Uncle Alpha Dumbuya & Family
+          </p>
+          <p className="text-xs text-blue-300/70 font-body mt-3">
+            &copy; {new Date().getFullYear()} Alpha Dumbuya.
+          </p>
+          <p className="text-xs text-blue-300/70 font-body mt-1">
+            Designed with love for Justious Samura Dumbuya.
+          </p>
+        </motion.footer>
+      </motion.div>
+    </motion.div>
   );
 }

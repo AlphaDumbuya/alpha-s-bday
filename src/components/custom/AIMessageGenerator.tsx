@@ -81,7 +81,7 @@ const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenera
           Craft a Special Message
         </CardTitle>
         <CardDescription className="font-body">
-          Enter your name and describe your feelings. Our AI will help you write a heartfelt birthday message for Alpha!
+          Enter your name and describe your feelings. Our AI will help you write a heartfelt birthday message for Justious!
         </CardDescription>
       </CardHeader>
       <Form {...form}>
@@ -113,10 +113,10 @@ const AIMessageGenerator: React.FC<AIMessageGeneratorProps> = ({ onMessageGenera
               name="userInput"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-body text-foreground/80">Your feelings & thoughts for Alpha:</FormLabel>
+                  <FormLabel className="font-body text-foreground/80">Your feelings & thoughts for Justious:</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="e.g., 'So happy for Alpha's birthday! Wishing all the best...'"
+                      placeholder="e.g., 'So happy for Justious's birthday! Wishing all the best...'"
                       className="resize-none bg-input focus:ring-accent font-body"
                       rows={4}
                       {...field}

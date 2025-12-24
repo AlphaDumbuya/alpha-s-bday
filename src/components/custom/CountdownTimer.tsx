@@ -52,11 +52,11 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
   if (!isClient) {
     // Render placeholder or null on server to avoid hydration mismatch
     return (
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center my-8 md:my-12">
+      <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-6 text-center my-8 md:my-12">
         {[...Array(4)].map((_, i) => (
-          <div key={i} className="p-4 md:p-6 bg-primary/70 rounded-lg shadow-lg">
-            <div className="text-4xl md:text-6xl font-bold text-accent animate-pulse">--</div>
-            <div className="text-sm md:text-base uppercase text-muted-foreground">Loading...</div>
+          <div key={i} className="p-2 sm:p-4 md:p-6 bg-primary/70 rounded-lg shadow-lg">
+            <div className="text-2xl sm:text-4xl md:text-6xl font-bold text-accent animate-pulse">--</div>
+            <div className="text-xs sm:text-sm md:text-base uppercase text-muted-foreground">Loading...</div>
           </div>
         ))}
       </div>
@@ -68,7 +68,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
     return (
       <div className="text-center my-8 md:my-12">
         <h2 className="text-4xl md:text-5xl font-bold text-accent animate-pulse-glow font-headline">
-          Happy Birthday, Alpha!
+          Happy Birthday, Justious Samura Dumbuya!
         </h2>
         <p className="text-xl text-muted-foreground mt-2">The special day is here!</p>
       </div>
@@ -83,11 +83,11 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
   ];
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 text-center my-8 md:my-12 px-4">
+    <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-6 text-center my-8 md:my-12 px-2 sm:px-4">
       {timeUnits.map((unit, index) => (
-        <div key={unit.label} className="p-4 md:p-6 bg-primary/70 rounded-xl shadow-xl transform transition-all hover:scale-105" style={{backdropFilter: 'blur(5px)'}}>
+        <div key={unit.label} className="p-2 sm:p-4 md:p-6 bg-primary/70 rounded-xl shadow-xl transform transition-all hover:scale-105" style={{backdropFilter: 'blur(5px)'}}>
           <div 
-            className={`text-4xl sm:text-5xl md:text-6xl font-bold text-accent ${index === 3 ? 'animate-pulse-glow' : 'text-glow'}`}
+            className={`text-2xl sm:text-4xl md:text-6xl font-bold text-accent ${index === 3 ? 'animate-pulse-glow' : 'text-glow'}`}
             style={{ animationDelay: `${index * 0.1}s`}}
           >
             {unit.value < 10 ? `0${unit.value}` : unit.value}

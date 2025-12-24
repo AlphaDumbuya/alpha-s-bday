@@ -20,103 +20,73 @@ interface QuizQuestion {
 const quizQuestionsData: QuizQuestion[] = [
   {
     id: 1,
-    questionText: "Alpha’s love life can best be described as:",
+    questionText: "What's Justious's favorite hobby when he eats?",
     options: [
-      { text: "A romantic movie", isCorrect: false },
-      { text: "A mystery novel", isCorrect: false },
-      { text: "A Wi-Fi signal—sometimes strong, sometimes gone!", isCorrect: true },
+      { text: "Using a fork like a ninja", isCorrect: false },
+      { text: "Wearing more food than he eats!", isCorrect: true },
+      { text: "Eating with perfect manners", isCorrect: false },
     ],
-    jokeExplanation: "Because love, like Wi-Fi, can be beautifully unpredictable!"
+    jokeExplanation: "The classic toddler food explosion—fashion statement and dinner all in one! 😄"
   },
   {
     id: 2,
-    questionText: "Alpha’s religious habit includes:",
+    questionText: "If Justious were a superhero, what would be his superpower?",
     options: [
-      { text: "Praying 24/7", isCorrect: false },
-      { text: "Sleeping in church", isCorrect: false },
-      { text: "Saying “Thank God” even when Wi-Fi connects", isCorrect: true },
+      { text: "Flying through the sky", isCorrect: false },
+      { text: "The ability to fall asleep ANYWHERE (even mid-play!)", isCorrect: true },
+      { text: "Super strength", isCorrect: false },
     ],
-    jokeExplanation: "Priorities! A stable internet connection is a true blessing in the modern age."
+    jokeExplanation: "Toddler narcolepsy is REAL! One second playing, next second—snooze mode activated! 💤"
   },
   {
     id: 3,
-    questionText: "What does Alpha do when he’s angry?",
+    questionText: "What does Justious do that makes everyone laugh?",
     options: [
-      { text: "Yells at everyone", isCorrect: false },
-      { text: "Goes silent like a phone on airplane mode", isCorrect: true },
-      { text: "Eats 3 plates of food to calm down", isCorrect: false },
+      { text: "Tell long stories nobody understands", isCorrect: true },
+      { text: "Solve complex math problems", isCorrect: false },
+      { text: "Recite the alphabet backwards", isCorrect: false },
     ],
-    jokeExplanation: "Sometimes silence is the loudest reboot sequence."
+    jokeExplanation: "Pure gibberish with the most serious face ever! We have no idea what he's saying, but it's HILARIOUS! 😂"
   },
   {
     id: 4,
-    questionText: "What’s one thing Alpha can’t live without?",
+    questionText: "How many times can Justious say 'why' in one conversation?",
     options: [
-      { text: "Cap", isCorrect: false },
-      { text: "His phone & Computer", isCorrect: true },
-      { text: "His socks (even in hot weather)", isCorrect: false },
+      { text: "Maybe 5-10 times", isCorrect: false },
+      { text: "INFINITE! It never ends!", isCorrect: true },
+      { text: "He never asks why", isCorrect: false },
     ],
-    jokeExplanation: "The essential toolkit for modern survival and conquering the digital world!"
+    jokeExplanation: "The eternal 'why' game—where every answer leads to another 'why?' Parents know the struggle! 🤦"
   },
   {
     id: 5,
-    questionText: "If Alpha was to choose between sleep and food, he would:",
+    questionText: "What's Justious's favorite birthday activity?",
     options: [
-      { text: "Sleep and dream of food", isCorrect: false },
-      { text: "Eat, then sleep like a king", isCorrect: true },
-      { text: "Pray for strength to resist both", isCorrect: false },
+      { text: "Eating cake with his hands, face, and everywhere in between!", isCorrect: true },
+      { text: "Taking a nap", isCorrect: false },
+      { text: "Organizing toys neatly", isCorrect: false },
     ],
-    jokeExplanation: "A well-fed nap is truly the pinnacle of existence and productivity."
+    jokeExplanation: "Forget forks and spoons—hands are the best utensils! And somehow cake ends up in his ears too! 🎂😄"
   },
   {
     id: 6,
-    questionText: "What’s Alpha’s biggest dream?",
+    questionText: "Where does Justious fall asleep the WORST possible places?",
     options: [
-      { text: "Finding love", isCorrect: false },
-      { text: "Helping the less privileged", isCorrect: true },
-      { text: "Eating jollof on a yacht with no network", isCorrect: false },
+      { text: "In his cozy bed like a normal kid", isCorrect: false },
+      { text: "In the middle of the living room, on the stairs, literally ANYWHERE BUT bed!", isCorrect: true },
+      { text: "Only in his crib", isCorrect: false },
     ],
-    jokeExplanation: "A truly noble aspiration! (Though the jollof yacht has its merits too.)"
+    jokeExplanation: "The moment you think he's tired enough to nap, he fights sleep like it's his enemy—then BOOM, asleep mid-tantrum on the kitchen floor! 😴"
   },
   {
     id: 7,
-    questionText: "Alpha’s favorite workout routine is:",
+    questionText: "What's Justious's signature move when he doesn't get what he wants?",
     options: [
-      { text: "Jogging", isCorrect: false },
-      { text: "Clicking “Next episode” on Netflix", isCorrect: false },
-      { text: "Chasing mosquitoes at night", isCorrect: true },
+      { text: "The dramatic floor flop + incredible screaming performance!", isCorrect: true },
+      { text: "Polite negotiation", isCorrect: false },
+      { text: "Quiet acceptance", isCorrect: false },
     ],
-    jokeExplanation: "The ultimate high-intensity interval training for reflexes and patience!"
-  },
-  {
-    id: 8,
-    questionText: "What would Alpha do if he found $10,000 on the ground?",
-    options: [
-      { text: "Report to the police", isCorrect: true },
-      { text: "Dance first, ask questions later", isCorrect: false },
-      { text: "Sow it as a seed and claim blessings", isCorrect: false },
-    ],
-    jokeExplanation: "The responsible choice! Though a little celebration dance afterwards wouldn't hurt."
-  },
-  {
-    id: 9,
-    questionText: "If Alpha was a pastor, what would be his sermon topic?",
-    options: [
-      { text: "“Fruits of the Spirit”", isCorrect: false },
-      { text: "“The Power of food in the Last Days”", isCorrect: true },
-      { text: "“Thou Shalt Not Cheat on Jollof”", isCorrect: false },
-    ],
-    jokeExplanation: "Nourishing the soul... and the stomach, for spiritual enlightenment!"
-  },
-  {
-    id: 10,
-    questionText: "What happens when Alpha is broke?",
-    options: [
-      { text: "He goes silent like WhatsApp GB", isCorrect: false },
-      { text: "He remembers all his old crushes", isCorrect: false },
-      { text: "He becomes more spiritual than usual", isCorrect: true },
-    ],
-    jokeExplanation: "Desperate times call for divine intervention... and maybe a financial miracle."
+    jokeExplanation: "Academy Award-worthy acting! Complete with rolling on the floor and sound effects that could wake the neighbors three blocks away! 🎭😆"
   }
 ];
 
@@ -188,13 +158,13 @@ const BirthdayQuiz: React.FC = () => {
   if (isQuizFinished) {
     let resultMessage = "Good effort!";
     if (score === shuffledQuestions.length) {
-      resultMessage = "Wow! You know Alpha like the back of your hand! (Or you're Alpha!)";
-    } else if (score >= shuffledQuestions.length * 0.75) {
-      resultMessage = "Excellent! You're practically Alpha's biographer!";
-    } else if (score >= shuffledQuestions.length * 0.5) {
-      resultMessage = "Not bad! You've definitely shared some laughs with Alpha!";
+      resultMessage = "PERFECT SCORE! You're the ultimate Justious expert! 🏆 You deserve cake AND confetti!";
+    } else if (score >= shuffledQuestions.length * 0.8) {
+      resultMessage = "WOW! You know Justious SO well! Almost perfect! 🎉";
+    } else if (score >= shuffledQuestions.length * 0.6) {
+      resultMessage = "Great! You definitely spend quality time with Justious! 😄";
     } else {
-      resultMessage = "Hmm, maybe spend more time with Alpha? (Or just enjoy the cake!)";
+      resultMessage = "Haha, well now you know Justious better! Time for cake! 🎂";
     }
 
     return (
