@@ -163,7 +163,7 @@ export default function BirthdayBlastPage() {
           >
             <div className="relative w-full max-w-3xl h-auto rounded-2xl overflow-hidden shadow-2xl card-glow border border-accent/20">
               <Image 
-                src="/special-message-bg-img.png"
+                src="/special-message-bg-img.jpeg"
                 alt="Justious Samura Dumbuya"
                 width={800}
                 height={600}
