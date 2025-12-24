@@ -19,7 +19,7 @@ const openSans = Open_Sans({
 });
 
 const alphaPhotoUrl = "https://code-alpha-image-gallary.vercel.app/alpha.jpeg";
-const pageUrl = "https://alpha-s-bday.vercel.app";
+const pageUrl = "https://justious.vercel.app";
 const siteName = "Birthday Blast for Justious Samura Dumbuya!";
 const pageTitle = "You're Invited to Justious Samura Dumbuya's Birthday Blast!";
 const pageDescription = "Join us in celebrating Justious Samura Dumbuya's birthday! Check out this special page with a countdown, AI message generator, and virtual card.";

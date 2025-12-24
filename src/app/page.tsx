@@ -69,7 +69,7 @@ export default function BirthdayBlastPage() {
       return;
     }
     
-    const shareMessage = `🎉 *Justious Samura Dumbuya's Birthday Celebration* 🎉\n\n${generatedMessage}\n\n💝 Join us in celebrating! 💝\n\nVisit: https://alpha-s-bday.vercel.app`;
+    const shareMessage = `🎉 *Justious Samura Dumbuya's Birthday Celebration* 🎉\n\n${generatedMessage}\n\n💝 Join us in celebrating! 💝\n\nVisit: https://justious.vercel.app`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(shareMessage)}`;
     window.open(whatsappUrl, '_blank');
     toast({
