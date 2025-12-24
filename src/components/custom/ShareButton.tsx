@@ -42,8 +42,8 @@ const ShareButton: React.FC<ShareButtonProps> = ({ messageToShare }) => {
       return;
     }
 
-    const shareTitle = "Happy Birthday Alpha Dumbuya!";
-    const shareText = "You're invited to Alpha Dumbuya's Birthday Blast! Check out this special page for his celebration.";
+    const shareTitle = "Happy Birthday Justious Samura Dumbuya!";
+    const shareText = "You're invited to Justious Samura Dumbuya's Birthday Blast! Check out this special page for his celebration.";
 
     if (navigator.share) {
       try {
@@ -79,7 +79,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ messageToShare }) => {
       <Button
         onClick={handleSharePage}
         className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 focus:ring-accent font-headline text-lg py-6 px-8"
-        aria-label="Share Alpha's Birthday Page Link"
+        aria-label="Share Justious Samura Dumbuya's Birthday Page Link"
         disabled={!pageUrl}
       >
         <Icon className="mr-2 h-5 w-5" />
