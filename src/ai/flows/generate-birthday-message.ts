@@ -1,6 +1,6 @@
 'use server';
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import Groq from 'groq-sdk';
 
 export type GenerateBirthdayMessageInput = {
   userInput: string;
@@ -14,14 +14,13 @@ export type GenerateBirthdayMessageOutput = {
 export async function generateBirthdayMessage(
   input: GenerateBirthdayMessageInput
 ): Promise<GenerateBirthdayMessageOutput> {
-  const apiKey = process.env.GOOGLE_GENAI_API_KEY;
-  
+  const apiKey = process.env.GROQ_API_KEY;
+
   if (!apiKey) {
-    throw new Error('GOOGLE_GENAI_API_KEY is not configured');
+    throw new Error('GROQ_API_KEY is not configured');
   }
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+  const groq = new Groq({ apiKey });
 
   const prompt = `You are a helpful assistant that crafts personalized birthday messages.
 
@@ -32,9 +31,12 @@ User Input: ${input.userInput}
 
 Return only the birthday message, nothing else.`;
 
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const message = response.text();
+  const response = await groq.chat.completions.create({
+    model: 'llama-3.1-8b-instant',
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  const message = response.choices[0]?.message?.content || 'Happy Birthday!';
 
   return { message };
 }
